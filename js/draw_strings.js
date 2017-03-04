@@ -48,23 +48,23 @@ function drawMark(width) {
 
 function drawChord() {
 	for (var i = 0; i < 12; i++) {
-		if (chord[5][i] !== '-') {
-			drawNote(80 * (i) - 20, 0, chord[5][i]);
+		if (isFretValid(chord[5][i])) {
+			drawNote(80 * i - 20, 0, chord[5][i]);
 		}
-		if (chord[4][i] !== '-') {
-			drawNote(80 * (i) - 20, 50, chord[4][i]);
+		if (isFretValid(chord[4][i])) {
+			drawNote(80 * i - 20, 50, chord[4][i]);
 		}
-		if (chord[3][i] !== '-') {
-			drawNote(80 * (i) - 20, 100, chord[3][i]);
+		if (isFretValid(chord[3][i])) {
+			drawNote(80 * i - 20, 100, chord[3][i]);
 		}
-		if (chord[2][i] !== '-') {
-			drawNote(80 * (i) - 20, 150, chord[2][i]);
+		if (isFretValid(chord[2][i])) {
+			drawNote(80 * i - 20, 150, chord[2][i]);
 		}
-		if (chord[1][i] !== '-') {
-			drawNote(80 * (i) - 20, 200, chord[1][i]);
+		if (isFretValid(chord[1][i])) {
+			drawNote(80 * i - 20, 200, chord[1][i]);
 		}
-		if (chord[0][i] !== '-') {
-			drawNote(80 * (i) - 20, 250, chord[0][i]);
+		if (isFretValid(chord[0][i])) {
+			drawNote(80 * i - 20, 250, chord[0][i]);
 		}
 	}
 }
@@ -72,11 +72,11 @@ function drawChord() {
 function drawNote(width, height, note) {
 	width = width - 10 + canvas_margin;
 	height = height + 5 + canvas_margin;
-	// context.beginPath();
-	// context.arc(width, height, 8, 0, 2*Math.PI);
-	// context.stroke();
-	// context
 	context.font = 'bold 20px Verdana';
 	context.fillStyle = 'red';
 	context.fillText(note, width, height);
+}
+
+function isFretValid(fret) {
+	return fret !== '-' && fret !== 'X'
 }
