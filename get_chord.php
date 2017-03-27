@@ -51,11 +51,11 @@ class GetChord {
 		}
 	}
 
-	private function getMajorChord($chordRoot) {
+	public function getMajorChord($chordRoot) {
 		return $chordRoot . ' ' .  $this->getMajorThird($chordRoot) . ' ' . $this->getFifth($chordRoot);
 	}
 
-	private function getMinorChord($chordRoot) {
+	public function getMinorChord($chordRoot) {
 		return $chordRoot . ' ' .  $this->getMinorThird($chordRoot) . ' ' . $this->getFifth($chordRoot);
 	}
 

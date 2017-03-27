@@ -1,6 +1,6 @@
 <?php
-	require('get_chord.php');
-	require('get_scales.php');
+	require $_SERVER['DOCUMENT_ROOT'].'/chords/get_chord.php';
+	require $_SERVER['DOCUMENT_ROOT'].'/chords/get_scales.php';
 
 	$notes = [
 		'c',
@@ -95,9 +95,10 @@
 		</div>
 		<div class="chord_scales col-md-6 col-md-offset-2">
 			<div class="major_scales col-md-6">
+				<h4>MAJOR SCALES</h4>
 				<?php 
 					foreach ($_POST['chord_scales']['major'] as $scaleRoot => $majorScale) {
-						echo '<strong>' . $scaleRoot . ' major' . '</strong>';
+						echo '<strong>' . $scaleRoot . ' ' . GetScales::MAJOR . '</strong>';
 						echo "</br>";
 						foreach ($majorScale as $note) {
 							echo $note . ' ';
@@ -107,9 +108,10 @@
 				?>
 			</div>
 			<div class="minor_scales col-md-6">
+				<h4>MINOR SCALES</h4>
 				<?php 
 					foreach ($_POST['chord_scales']['minor'] as $scaleRoot => $minorScale) {
-						echo '<strong>' . $scaleRoot . ' minor' . '</strong>';
+						echo '<strong>' . $scaleRoot . ' ' . GetScales::MINOR . '</strong>';
 						echo "</br>";
 						foreach ($minorScale as $note) {
 							echo $note . ' ';
