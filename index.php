@@ -1,6 +1,6 @@
 <?php
-	require $_SERVER['DOCUMENT_ROOT'].'/chords/get_chord.php';
-	require $_SERVER['DOCUMENT_ROOT'].'/chords/get_scales.php';
+	require $_SERVER['DOCUMENT_ROOT'].'/string_theory/get_chord.php';
+	require $_SERVER['DOCUMENT_ROOT'].'/string_theory/get_scales.php';
 
 	$notes = [
 		'c',
@@ -47,8 +47,8 @@
 					<option value="b" <?= $_POST["chord_root"] === 'b' ? 'selected' : '' ?> >B</option>
 				</select>
 				<select name="chord_type">
-					<option value="maj" <?= $_POST["chord_type"] === 'maj' ? 'selected' : '' ?> >Major</option>
-					<option value="min" <?= $_POST["chord_type"] === 'min' ? 'selected' : '' ?> >Minor</option>
+					<option value="<?= GetChord::MAJOR ?>" <?= $_POST["chord_type"] === GetChord::MAJOR ? 'selected' : '' ?> >Major</option>
+					<option value="<?= GetChord::MINOR ?>" <?= $_POST["chord_type"] === GetChord::MINOR ? 'selected' : '' ?> >Minor</option>
 				</select>
 				<select name="chord_seventh">
 					<option value="" <?= $_POST["chord_seventh"] === '' ? 'selected' : '' ?> >-</option>
