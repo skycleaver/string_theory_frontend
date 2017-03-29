@@ -1,20 +1,41 @@
-canvas_margin = 50;
-string_separation = 50;
-fretboard_length = 1000;
-fret_length = 80;
-number_of_strings = 6;
-fretboard_width = string_separation * (number_of_strings - 1);
-mark_radius = 10;
-note_margin_from_fret = 30;
-note_margin_from_string = 5;
+function draw(screen_width) {
+	initializeDrawingVariables();
+	applyRatioToDrawingVariables(screen_width);
 
-my_canvas = document.getElementById('canvas');
-context = my_canvas.getContext('2d');
-context.beginPath();
+	my_canvas = document.getElementById('canvas');
+	context = my_canvas.getContext('2d');
+	context.clearRect(0, 0, my_canvas.width, my_canvas.height);
+	context.beginPath();
 
-drawFretboard();
-drawStrings();
-drawChord();
+	drawFretboard();
+	drawStrings();
+	drawChord();
+}
+
+function initializeDrawingVariables() {
+	number_of_strings = 6;
+	canvas_margin = 50;
+	string_separation = 50;
+	fretboard_length = 1000;
+	fret_length = 80;
+	fretboard_width = string_separation * (number_of_strings - 1);
+	mark_radius = 10;
+	note_margin_from_fret = 30;
+	note_margin_from_string = 5;
+}
+
+function applyRatioToDrawingVariables(screen_width) {
+	ratio = screen_width / 1800;
+
+	canvas_margin = canvas_margin * ratio;
+	string_separation = string_separation * ratio;
+	fretboard_length = fretboard_length * ratio;
+	fret_length = fret_length * ratio;
+	fretboard_width = fretboard_width * ratio;
+	mark_radius = mark_radius * ratio;
+	note_margin_from_fret = note_margin_from_fret * ratio;
+	note_margin_from_string = note_margin_from_string * ratio;
+}
 
 function drawFretboard() {
 	for (var i = 0; i < 12; i++) {
@@ -81,7 +102,7 @@ function drawChord() {
 function drawNote(width, height, note) {
 	width = width - note_margin_from_fret + canvas_margin;
 	height = height + note_margin_from_string + canvas_margin;
-	
+
 	context.font = 'bold 20px Verdana';
 	context.fillStyle = 'red';
 	context.fillText(note, width, height);

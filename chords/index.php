@@ -29,7 +29,7 @@
 	<head>
     </head>
 
-	<body>
+	<body onresize="resize()">
 		<div class='col-md-4 col-md-offset-4'>
 			<form action="" method="POST">
 				<select name="chord_root">
@@ -137,5 +137,15 @@
 	<script type='text/javascript'>var chord=<?php echo $_POST["chord_guitar_json"]; ?></script>
 	<script src='../js/draw_strings.js' type='text/javascript'></script>
     <script src='../js/click_scales.js' type='text/javascript'></script>
+    <script type='text/javascript'>
+	    resize();
+
+	    function resize() {
+            var screen_width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            var screen_height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+            draw(screen_width);
+        }
+    </script>
 
 </html>
