@@ -16,7 +16,6 @@
         'a#',
         'b'
     ];
-
     if (!isset($_POST['scale_root'])) {
         $_POST['scale_root'] = 'c';
     }
@@ -65,7 +64,7 @@
                 }
             ?>
         </div>
-        <form id="get_chord" action="../" method="post">
+        <form id="get_chord" action="../chords/index.php" method="post">
             <input id="chord_root" name="chord_root" type="hidden"></input>
             <input id="chord_type" name="chord_type" type="hidden"></input>
             <input id="chord_seventh" name="chord_seventh" type="hidden"></input>
