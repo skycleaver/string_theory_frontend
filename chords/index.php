@@ -1,6 +1,6 @@
 <?php
-	require $_SERVER['DOCUMENT_ROOT'].'/string_theory/get_chord.php';
-	require $_SERVER['DOCUMENT_ROOT'].'/string_theory/get_scales.php';
+	require $_SERVER['DOCUMENT_ROOT'].'/st_front/get_chord.php';
+	require $_SERVER['DOCUMENT_ROOT'].'/st_front/get_scales.php';
 
 	$notes = [
 		'c',

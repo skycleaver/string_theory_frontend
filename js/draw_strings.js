@@ -1,6 +1,6 @@
-function draw(screen_width) {
+function draw(chord_guitar) {
 	initializeDrawingVariables();
-	applyRatioToDrawingVariables(screen_width);
+	applyRatioToDrawingVariables();
 
 	my_canvas = document.getElementById('canvas');
 	context = my_canvas.getContext('2d');
@@ -9,7 +9,7 @@ function draw(screen_width) {
 
 	drawFretboard();
 	drawStrings();
-	drawChord();
+	drawChord(chord_guitar);
 }
 
 function initializeDrawingVariables() {
@@ -24,8 +24,9 @@ function initializeDrawingVariables() {
 	note_margin_from_string = 5;
 }
 
-function applyRatioToDrawingVariables(screen_width) {
-	ratio = screen_width / 1800;
+function applyRatioToDrawingVariables() {
+    var screen_width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+	var ratio = screen_width / 1800;
 
 	canvas_margin = canvas_margin * ratio;
 	string_separation = string_separation * ratio;
@@ -76,7 +77,8 @@ function drawMark(width) {
 	context.stroke();
 }
 
-function drawChord() {
+function drawChord(chord) {
+	console.log(chord);
 	for (var i = 0; i < 12; i++) {
 		if (isFretValid(chord[5][i])) {
 			drawNote(fret_length * i, string_separation * 0, chord[5][i]);
