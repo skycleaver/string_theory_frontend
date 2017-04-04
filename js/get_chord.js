@@ -13,7 +13,7 @@ function getChord(chord_root, chord_type, chord_seventh) {
     });
 }
 
-function getChordGuitar(chord_root, chord_type, chord_seventh, callback_function) {    
+function getChordGuitarAndDraw(chord_root, chord_type, chord_seventh, callback_draw_function) {    
     $.ajax({
         method: "GET",
         dataType: "jsonp",
@@ -25,6 +25,6 @@ function getChordGuitar(chord_root, chord_type, chord_seventh, callback_function
         }
     }).done(function (response) {
         console.log(response.chord_guitar);
-        callback_function(response.chord_guitar);
+        callback_draw_function(response.chord_guitar);
     });
 }

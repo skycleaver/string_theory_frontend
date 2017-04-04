@@ -144,7 +144,7 @@
             var screen_width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
             var screen_height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
-            draw(screen_width);
+            //drawChord(screen_width);
         }
     </script>
 

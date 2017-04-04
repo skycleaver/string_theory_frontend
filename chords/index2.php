@@ -29,7 +29,6 @@
                     <option value="maj7">Major 7th</option>
                     <option value="min7">Minor 7th</option>
                 </select>
-                <input type="submit" value="Get">
             </form>
             <div class="chord">
                 <?= $_POST["chord"]; ?>
@@ -90,27 +89,21 @@
         getChordWithInput();
 
         function getChordWithInput() {
-            getChord(
-                document.getElementsByName("chord_root")[0].value,
-                document.getElementsByName("chord_type")[0].value,
-                document.getElementsByName("chord_seventh")[0].value
-            );
-            var chord_guitar = getChordGuitar(
+            // getChord(
+            //     document.getElementsByName("chord_root")[0].value,
+            //     document.getElementsByName("chord_type")[0].value,
+            //     document.getElementsByName("chord_seventh")[0].value
+            // );
+            getChordGuitarAndDraw(
                 document.getElementsByName("chord_root")[0].value,
                 document.getElementsByName("chord_type")[0].value,
                 document.getElementsByName("chord_seventh")[0].value,
-                draw
+                drawChordGuitar
             );
-            //draw(screen_width, chord_guitar);
         }
 
         function resize() {
-            var chord_guitar = getChordGuitar(
-                document.getElementsByName("chord_root")[0].value,
-                document.getElementsByName("chord_type")[0].value,
-                document.getElementsByName("chord_seventh")[0].value,
-                draw
-            );
+            getChordWithInput()
         }
     </script>
     <script src='../js/click_scales.js' type='text/javascript'></script>
