@@ -24,7 +24,7 @@
                 <option value="minor">Minor</option>
             </select>
         </form>
-        <div class="scale col-md-offset-2 col-md-8">
+        <div id="scale_canvas" class="col-md-offset-2 col-md-8">
             <?php
                 // echo $_POST['scale']['name'] . '</br>';
                 // foreach ($_POST['scale']['chords'] as $chord_name => $chord) {

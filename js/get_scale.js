@@ -1,4 +1,4 @@
-function getScaleAndDraw(scale_root, scale_name) {    
+function getScaleAndDraw(scale_root, scale_name, callback_draw_function) {    
     $.ajax({
         method: "GET",
         dataType: "jsonp",
@@ -8,7 +8,6 @@ function getScaleAndDraw(scale_root, scale_name) {
             scale_name: scale_name
         }
     }).done(function (response) {
-        console.log(response.chord_guitar);
         callback_draw_function(response.scale);
     });
 }

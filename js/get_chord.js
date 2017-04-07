@@ -9,7 +9,6 @@ function getChord(chord_root, chord_type, chord_seventh) {
             chord_seventh: chord_seventh 
         }
     }).done(function (response) {
-        console.log(response);
     });
 }
 
@@ -24,7 +23,6 @@ function getChordGuitarAndDraw(chord_root, chord_type, chord_seventh, callback_d
             chord_seventh: chord_seventh 
         }
     }).done(function (response) {
-        console.log(response.chord_guitar);
         callback_draw_function(response.chord_guitar);
     });
 }

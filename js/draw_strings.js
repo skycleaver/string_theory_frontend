@@ -85,7 +85,6 @@ function drawDoubleMark(width) {
 }
 
 function drawChord(chord) {
-    console.log(chord);
     for (var i = 0; i < 12; i++) {
         if (isFretValid(chord[5][i])) {
             drawNote(fret_length * i, string_separation * 0, chord[5][i]);

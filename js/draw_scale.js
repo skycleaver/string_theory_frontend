@@ -1,3 +1,3 @@
-function drawScale() {
-	console.log("To be implemented");
+function drawScale(scale) {
+	document.getElementById('scale_canvas').innerHTML = scale;
 }
