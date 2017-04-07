@@ -70,10 +70,10 @@
                     // }
                 ?>
             </div>
-            <form id="get_scale" action="../scales/index.php" method="post">
+<!--             <form id="get_scale" action="../scales/index.php" method="post">
                 <input id="scale_root" name="scale_root" type="hidden"></input>
                 <input id="scale_name" name="scale_name" type="hidden"></input>
-            </form>
+            </form> -->
         </div>
     </body>
 
@@ -89,11 +89,6 @@
         getChordWithInput();
 
         function getChordWithInput() {
-            // getChord(
-            //     document.getElementsByName("chord_root")[0].value,
-            //     document.getElementsByName("chord_type")[0].value,
-            //     document.getElementsByName("chord_seventh")[0].value
-            // );
             getChordGuitarAndDraw(
                 document.getElementsByName("chord_root")[0].value,
                 document.getElementsByName("chord_type")[0].value,
