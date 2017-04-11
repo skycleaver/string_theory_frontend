@@ -1,4 +1,4 @@
 <?php
-	include("../scales/index2.php");
-	include("../chords/index2.php");
+	include("../scales/index.php");
+	include("../chords/index.php");
 ?>
