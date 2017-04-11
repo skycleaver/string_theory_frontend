@@ -5,43 +5,31 @@
 
     <body>
         <div class='col-md-12'>
-            <form action="" method="POST">
-                <select name="scale_root" onchange="getScaleWithInput()">
-                    <option value="c"?>C</option>
-                    <option value="c#"?>C#</option>
-                    <option value="d"?>D</option>
-                    <option value="d#"?>D#</option>
-                    <option value="e"?>E</option>
-                    <option value="f"?>F</option>
-                    <option value="f#"?>F#</option>
-                    <option value="g"?>G</option>
-                    <option value="g#"?>G#</option>
-                    <option value="a"?>A</option>
-                    <option value="a#"?>A#</option>
-                    <option value="b"?>B</option>
-                </select>
-                <select name="scale_name" onchange="getScaleWithInput()">
-                    <option value="major">Major</option>
-                    <option value="minor">Minor</option>
-                </select>
-            </form>
-            <div id="scale_canvas" class="col-md-offset-2 col-md-8" style="font-size:4em;">
-                <?php
-                    // echo $_POST['scale']['name'] . '</br>';
-                    // foreach ($_POST['scale']['chords'] as $chord_name => $chord) {
-                    //     echo '<div class="clickable_chord" onclick="get_chord(\'' . $chord_name . '\')">' . $chord_name . ' => ' . $chord . '</div>';
-                    // }
-                ?>
+            <div class='col-md-offset-4 col-md-4'>
+                <form action="" method="POST">
+                    <select name="scale_root" onchange="getScaleWithInput()">
+                        <option value="c"?>C</option>
+                        <option value="c#"?>C#</option>
+                        <option value="d"?>D</option>
+                        <option value="d#"?>D#</option>
+                        <option value="e"?>E</option>
+                        <option value="f"?>F</option>
+                        <option value="f#"?>F#</option>
+                        <option value="g"?>G</option>
+                        <option value="g#"?>G#</option>
+                        <option value="a"?>A</option>
+                        <option value="a#"?>A#</option>
+                        <option value="b"?>B</option>
+                    </select>
+                    <select name="scale_name" onchange="getScaleWithInput()">
+                        <option value="major">Major</option>
+                        <option value="minor">Minor</option>
+                    </select>
+                </form>
             </div>
             <div id="scale_div" class="col-md-offset-2 col-md-8" style="font-size:4em;">
 
             </div>
-<!--             <form id="get_chord" action="../chords/index.php" method="post">
-                <input id="chord_root" name="chord_root" type="hidden"></input>
-                <input id="chord_type" name="chord_type" type="hidden"></input>
-                <input id="chord_seventh" name="chord_seventh" type="hidden"></input>
-            </form> -->
-        </div>
     </body>
 
     <!-- Bootstrap -->
@@ -52,6 +40,7 @@
     <script src='../js/draw_scale.js' type='text/javascript'></script>
     <script src='../js/get_chords_by_scale.js' type='text/javascript'></script>
     <script src='../js/draw_chords_by_scale.js' type='text/javascript'></script>
+    <script src='../js/click_chord.js' type='text/javascript'></script>
     <script type='text/javascript'>
         //resize();
         getScaleWithInput();
@@ -78,7 +67,5 @@
         //     );
         // }
     </script>
-    <script src='../js/click_scales.js' type='text/javascript'></script>
-
     
 </html>

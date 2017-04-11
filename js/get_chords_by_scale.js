@@ -1,5 +1,4 @@
 function getChordsByScaleAndDraw(scale_root, scale_name, callback_draw_function) {    
-    console.log(scale_root, scale_name);
     $.ajax({
         method: "GET",
         dataType: "jsonp",

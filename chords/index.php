@@ -30,9 +30,6 @@
                     <option value="min7">Minor 7th</option>
                 </select>
             </form>
-            <div class="chord">
-                <?= $_POST["chord"]; ?>
-            </div>
         </div>
         <div class="chord_guitar col-md-6 col-md-offset-2">
             <canvas id="canvas" width="1200" height="400">
@@ -66,6 +63,5 @@
             getChordWithInput()
         }
     </script>
-    <script src='../js/click_scales.js' type='text/javascript'></script>
 
 </html>
