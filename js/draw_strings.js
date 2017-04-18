@@ -42,10 +42,10 @@ function applyRatioToDrawingVariables() {
 function drawFretboard() {
     for (var i = 0; i <= number_of_frets; i++) {
         drawFret(fret_length * i);
-        if (i === 3 || i === 7 || i === 9) {
+        if (i === 3 || i === 5 || i === 7 || i === 9) {
             drawMark(fret_length * i - fret_length/2);
         }
-        if (i === 5 || i === 12) {
+        if (i === 12) {
             drawDoubleMark(fret_length * i - fret_length/2);
         }
     }
@@ -77,10 +77,10 @@ function drawMark(width) {
 
 function drawDoubleMark(width) {
     context.beginPath();
-    context.arc(width + canvas_margin, fretboard_width/2 - string_separation/5 + canvas_margin, mark_radius/1.5, 0, 2*Math.PI);
+    context.arc(width + canvas_margin, fretboard_width/2 - string_separation + canvas_margin, mark_radius, 0, 2*Math.PI);
     context.stroke();
     context.beginPath();
-    context.arc(width + canvas_margin, fretboard_width/2 + string_separation/5 + canvas_margin, mark_radius/1.5, 0, 2*Math.PI);
+    context.arc(width + canvas_margin, fretboard_width/2 + string_separation + canvas_margin, mark_radius, 0, 2*Math.PI);
     context.stroke();
 }
 

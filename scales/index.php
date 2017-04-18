@@ -22,8 +22,7 @@
                         <option value="b"?>B</option>
                     </select>
                     <select name="scale_name" onchange="getScaleWithInput()">
-                        <option value="major">Major</option>
-                        <option value="minor">Minor</option>
+
                     </select>
                 </form>
             </div>
@@ -34,38 +33,39 @@
 
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-    
+    <!-- JQuery -->
     <script src='../js/jquery-3.2.0.js' type='text/javascript'></script>
+
     <script src='../js/get_scale.js' type='text/javascript'></script>
     <script src='../js/draw_scale.js' type='text/javascript'></script>
     <script src='../js/get_chords_by_scale.js' type='text/javascript'></script>
     <script src='../js/draw_chords_by_scale.js' type='text/javascript'></script>
     <script src='../js/click_chord.js' type='text/javascript'></script>
+    <script src='../js/get_scale_names.js' type='text/javascript'></script>
     <script type='text/javascript'>
-        //resize();
+        getScaleNamesAndDraw(document.getElementsByName("scale_name")[0]);
         getScaleWithInput();
 
         function getScaleWithInput() {
-            getScaleAndDraw(
-                document.getElementsByName("scale_root")[0].value,
-                document.getElementsByName("scale_name")[0].value,
-                drawScale
-            );
-            getChordsByScaleAndDraw(
-                document.getElementsByName("scale_root")[0].value,
-                document.getElementsByName("scale_name")[0].value,
-                drawChordsByScale
-            );
+            // can't do this with jQuery's change() function, it does not cover adding options to a select
+            setTimeout(function() {
+                var scale_root = document.getElementsByName("scale_root")[0].value;
+                var scale_name = document.getElementsByName("scale_name")[0].value;
+                if (!scale_root || !scale_name) {
+                    getScaleWithInput()
+                }
+                getScaleAndDraw(
+                    scale_root,
+                    scale_name,
+                    drawScale
+                );
+                getChordsByScaleAndDraw(
+                    scale_root,
+                    scale_name,
+                    drawChordsByScale
+                );
+            }, 500);
         }
-
-        // function resize() {
-        //     var chord_guitar = getChordGuitar(
-        //         document.getElementsByName("chord_root")[0].value,
-        //         document.getElementsByName("chord_type")[0].value,
-        //         document.getElementsByName("chord_seventh")[0].value,
-        //         draw
-        //     );
-        // }
     </script>
     
 </html>

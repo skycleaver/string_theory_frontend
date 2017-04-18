@@ -21,8 +21,7 @@
                     <option value="b">B</option>
                 </select>
                 <select name="chord_type" onchange="getChordWithInput()">
-                    <option value="major">Major</option>
-                    <option value="minor">Minor</option>
+
                 </select>
                 <select name="chord_seventh" onchange="getChordWithInput()">
                     <option value="">-</option>
@@ -45,18 +44,22 @@
     <script src='../js/jquery-3.2.0.js' type='text/javascript'></script>
     <script src='../js/get_chord.js' type='text/javascript'></script>
     <script src='../js/draw_strings.js' type='text/javascript'></script>
+    <script src='../js/get_chord_types.js' type='text/javascript'></script>
     
     <script type='text/javascript'>
-        resize();
+        getChordTypesAndDraw(document.getElementsByName("chord_type")[0]);
         getChordWithInput();
 
         function getChordWithInput() {
-            getChordGuitarAndDraw(
-                document.getElementsByName("chord_root")[0].value,
-                document.getElementsByName("chord_type")[0].value,
-                document.getElementsByName("chord_seventh")[0].value,
-                drawChordGuitar
-            );
+            // can't do this with jQuery's change() function, it does not cover adding options to a select
+            setTimeout(function() {
+                getChordGuitarAndDraw(
+                    document.getElementsByName("chord_root")[0].value,
+                    document.getElementsByName("chord_type")[0].value,
+                    document.getElementsByName("chord_seventh")[0].value,
+                    drawChordGuitar
+                );
+            }, 100);
         }
 
         function resize() {

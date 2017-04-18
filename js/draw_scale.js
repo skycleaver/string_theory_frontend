@@ -6,7 +6,7 @@ function drawScale(scale) {
 	for (var i = 0; i < scale_array.length; i++) {
 		var div = document.createElement('div');
 		div.id = 'scale_note_div_'+scale_array[i];
-		div.className = 'col-md-1';
+		div.className = 'col-sm-1';
 		div.textContent = scale_array[i];
 
 		scale_div.appendChild(div);
