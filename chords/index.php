@@ -40,11 +40,12 @@
 
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-    
+    <!-- JQuery --> 
     <script src='../js/jquery-3.2.0.js' type='text/javascript'></script>
-    <script src='../js/get_chord.js' type='text/javascript'></script>
+    
+    <script src='../js/chords/get_chord.js' type='text/javascript'></script>
+    <script src='../js/chords/get_chord_types.js' type='text/javascript'></script>
     <script src='../js/draw_strings.js' type='text/javascript'></script>
-    <script src='../js/get_chord_types.js' type='text/javascript'></script>
     
     <script type='text/javascript'>
         getChordTypesAndDraw(document.getElementsByName("chord_type")[0]);

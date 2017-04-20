@@ -36,12 +36,12 @@
     <!-- JQuery -->
     <script src='../js/jquery-3.2.0.js' type='text/javascript'></script>
 
-    <script src='../js/get_scale.js' type='text/javascript'></script>
-    <script src='../js/draw_scale.js' type='text/javascript'></script>
-    <script src='../js/get_chords_by_scale.js' type='text/javascript'></script>
-    <script src='../js/draw_chords_by_scale.js' type='text/javascript'></script>
-    <script src='../js/click_chord.js' type='text/javascript'></script>
-    <script src='../js/get_scale_names.js' type='text/javascript'></script>
+    <script src='../js/scales/get_scale.js' type='text/javascript'></script>
+    <script src='../js/scales/draw_scale.js' type='text/javascript'></script>
+    <script src='../js/scales/get_scale_names.js' type='text/javascript'></script>
+    <script src='../js/chords/click_chord.js' type='text/javascript'></script>
+    <script src='../js/chords_by_scale/get_chords_by_scale.js' type='text/javascript'></script>
+    <script src='../js/chords_by_scale/draw_chords_by_scale.js' type='text/javascript'></script>
     <script type='text/javascript'>
         getScaleNamesAndDraw(document.getElementsByName("scale_name")[0]);
         getScaleWithInput();
