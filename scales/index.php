@@ -43,14 +43,14 @@
     <script src='../js/chords_by_scale/get_chords_by_scale.js' type='text/javascript'></script>
     <script src='../js/chords_by_scale/draw_chords_by_scale.js' type='text/javascript'></script>
     <script type='text/javascript'>
-        getScaleNamesAndDraw(document.getElementsByName("scale_name")[0]);
+        getScaleNamesAndDraw("scale_name");
         getScaleWithInput();
 
         function getScaleWithInput() {
             // can't do this with jQuery's change() function, it does not cover adding options to a select
             setTimeout(function() {
-                var scale_root = document.getElementsByName("scale_root")[0].value;
-                var scale_name = document.getElementsByName("scale_name")[0].value;
+                var scale_root = $('select[name=scale_root]').val();
+                var scale_name = $('select[name=scale_name]').val();
                 if (!scale_root || !scale_name) {
                     getScaleWithInput()
                 }
@@ -64,7 +64,7 @@
                     scale_name,
                     drawChordsByScale
                 );
-            }, 500);
+            }, 100);
         }
     </script>
     

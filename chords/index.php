@@ -21,7 +21,6 @@
                     <option value="b">B</option>
                 </select>
                 <select name="chord_type" onchange="getChordWithInput()">
-
                 </select>
                 <select name="chord_seventh" onchange="getChordWithInput()">
                     <option value="">-</option>
@@ -48,16 +47,16 @@
     <script src='../js/draw_strings.js' type='text/javascript'></script>
     
     <script type='text/javascript'>
-        getChordTypesAndDraw(document.getElementsByName("chord_type")[0]);
+        getChordTypesAndDraw("chord_type");
         getChordWithInput();
 
         function getChordWithInput() {
             // can't do this with jQuery's change() function, it does not cover adding options to a select
             setTimeout(function() {
                 getChordGuitarAndDraw(
-                    document.getElementsByName("chord_root")[0].value,
-                    document.getElementsByName("chord_type")[0].value,
-                    document.getElementsByName("chord_seventh")[0].value,
+                    $('select[name=chord_root]').val(),
+                    $('select[name=chord_type]').val(),
+                    $('select[name=chord_seventh]').val(),
                     drawChordGuitar
                 );
             }, 100);
