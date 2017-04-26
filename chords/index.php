@@ -7,20 +7,10 @@
         <div class='col-md-4 col-md-offset-4'>
             <form action="" method="POST">
                 <select name="chord_root" onchange="getChordWithInput()">
-                    <option value="c">C</option>
-                    <option value="c#">C#</option>
-                    <option value="d">D</option>
-                    <option value="d#">D#</option>
-                    <option value="e">E</option>
-                    <option value="f">F</option>
-                    <option value="f#">F#</option>
-                    <option value="g">G</option>
-                    <option value="g#">G#</option>
-                    <option value="a">A</option>
-                    <option value="a#">A#</option>
-                    <option value="b">B</option>
+
                 </select>
                 <select name="chord_type" onchange="getChordWithInput()">
+
                 </select>
                 <select name="chord_seventh" onchange="getChordWithInput()">
                     <option value="">-</option>
@@ -30,7 +20,7 @@
             </form>
         </div>
         <div class="chord_guitar col-md-6 col-md-offset-2">
-            <canvas id="canvas" width="1200" height="400">
+            <canvas id="chord_guitar_canvas" width="1200" height="400">
                 This text is displayed if your browser does not support HTML5 Canvas.
             </canvas>
         </div>
@@ -44,9 +34,12 @@
     
     <script src='../js/chords/get_chord.js' type='text/javascript'></script>
     <script src='../js/chords/get_chord_types.js' type='text/javascript'></script>
+    <script src='../js/chords/draw_chord.js' type='text/javascript'></script>
     <script src='../js/draw_strings.js' type='text/javascript'></script>
+    <script src='../js/notes/get_notes.js' type='text/javascript'></script>
     
     <script type='text/javascript'>
+        getNotesAndDraw("chord_root");
         getChordTypesAndDraw("chord_type");
         getChordWithInput();
 
@@ -57,7 +50,8 @@
                     $('select[name=chord_root]').val(),
                     $('select[name=chord_type]').val(),
                     $('select[name=chord_seventh]').val(),
-                    drawChordGuitar
+                    drawChordGuitar,
+                    "chord_guitar_canvas"
                 );
             }, 100);
         }

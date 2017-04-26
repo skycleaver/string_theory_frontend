@@ -2,6 +2,7 @@ function getChordsByScaleAndDraw(scale_root, scale_name, callback_draw_function)
     $.ajax({
         method: "GET",
         dataType: "jsonp",
+        cache: true,
         url: "http://localhost:8000/chords_by_scale",
         data: {
             scale_root: scale_root,

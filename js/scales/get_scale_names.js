@@ -2,6 +2,7 @@ function getScaleNamesAndDraw(select_name) {
     $.ajax({
         method: "GET",
         dataType: "jsonp",
+        cache: true,
         url: "http://localhost:8000/scale_names"
     }).done(function (response) {
         for (var i = 0; i < response.scale_names.length; i++) {

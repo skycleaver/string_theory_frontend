@@ -6,7 +6,7 @@ function drawChordsByScale(chords) {
 		var div = $('#scale_note_div_' + chord_root.replace(/#/g, "\\#"));
 
 		div.append($('<div>', {
-			css: {'font-size': '0.3em'},
+			css: {'font-size': '0.25em'},
             text: chord_root + ' ' + chord_type,
             // for some reason, if I do:
             // click: function() { clickChord(chord_root, chord_type) }

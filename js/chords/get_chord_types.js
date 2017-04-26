@@ -2,6 +2,7 @@ function getChordTypesAndDraw(select_name) {
     $.ajax({
         method: "GET",
         dataType: "jsonp",
+        cache: true,
         url: "http://localhost:8000/chord_types"
     }).done(function (response) {
         for (var i = 0; i < response.chord_types.length; i++) {
