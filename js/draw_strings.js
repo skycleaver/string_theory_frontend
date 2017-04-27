@@ -1,8 +1,7 @@
-function draw(chord_guitar, canvas_id) {
+function draw(notes, canvas_id) {
     my_canvas = document.getElementById(canvas_id);
 
     initializeDrawingVariables();
-    applyRatioToDrawingVariables();
 
     context = my_canvas.getContext('2d');
     context.clearRect(0, 0, my_canvas.width, my_canvas.height);
@@ -10,9 +9,10 @@ function draw(chord_guitar, canvas_id) {
 
     drawFretboard();
     drawStrings();
-    drawNotes(chord_guitar);
+    drawNotes(notes);
 }
 
+/** PRIVATE **/
 function initializeDrawingVariables() {
     number_of_strings = 6;
     number_of_frets = 12;
@@ -24,20 +24,6 @@ function initializeDrawingVariables() {
     mark_radius = 10;
     note_margin_from_fret = 30;
     note_margin_from_string = 5;
-}
-
-function applyRatioToDrawingVariables() {
-    var screen_width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    var ratio = screen_width / 1800;
-
-    canvas_margin = canvas_margin * ratio;
-    string_separation = string_separation * ratio;
-    fretboard_length = fretboard_length * ratio;
-    fret_length = fret_length * ratio;
-    fretboard_width = fretboard_width * ratio;
-    mark_radius = mark_radius * ratio;
-    note_margin_from_fret = note_margin_from_fret * ratio;
-    note_margin_from_string = note_margin_from_string * ratio;
 }
 
 function drawFretboard() {
@@ -86,24 +72,11 @@ function drawDoubleMark(width) {
 }
 
 function drawNotes(strings) {
-    for (var i = 0; i < 12; i++) {
-        if (isFretValid(strings[5][i])) {
-            drawNote(fret_length * i, string_separation * 0, strings[5][i]);
-        }
-        if (isFretValid(strings[4][i])) {
-            drawNote(fret_length * i, string_separation * 1, strings[4][i]);
-        }
-        if (isFretValid(strings[3][i])) {
-            drawNote(fret_length * i, string_separation * 2, strings[3][i]);
-        }
-        if (isFretValid(strings[2][i])) {
-            drawNote(fret_length * i, string_separation * 3, strings[2][i]);
-        }
-        if (isFretValid(strings[1][i])) {
-            drawNote(fret_length * i, string_separation * 4, strings[1][i]);
-        }
-        if (isFretValid(strings[0][i])) {
-            drawNote(fret_length * i, string_separation * 5, strings[0][i]);
+    for (var i = 0; i < number_of_frets; i++) {
+        for (var j = 0; j < number_of_strings; j++) {
+            if (isFretValid(strings[j][i])) {
+                drawNote(fret_length * i, string_separation * Math.abs(j - 5), strings[j][i]);
+            }
         }
     }
 }
@@ -118,5 +91,5 @@ function drawNote(width, height, note) {
 }
 
 function isFretValid(fret) {
-    return fret !== '-' && fret !== 'X'
+    return fret !== '-' && fret !== 'X';
 }
