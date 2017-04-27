@@ -3,7 +3,7 @@
     <head>
     </head>
 
-    <body onresize="resize()">
+    <body>
         <div class='col-md-4 col-md-offset-4'>
             <form action="" method="POST">
                 <select name="chord_root" onchange="getChordWithInput()">
@@ -56,9 +56,6 @@
             }, 100);
         }
 
-        function resize() {
-            getChordWithInput()
-        }
     </script>
 
 </html>

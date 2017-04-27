@@ -15,11 +15,11 @@
                     </select>
                 </form>
             </div>
-            <div id="scale_div" class="col-md-offset-2 col-md-4" style="font-size:4em;">
+            <div id="scale_div" class="col-md-offset-1 col-md-4" style="font-size:4em;">
 
             </div>
-            <div class="scale_guitar col-md-6">
-                <canvas id="canvas_scale_guitar" width="600" height="400">
+            <div class="scale_guitar col-md-offset-1 col-md-6">
+                <canvas id="canvas_scale_guitar" width="800" height="400">
                     This text is displayed if your browser does not support HTML5 Canvas.
                 </canvas>
             </div>
