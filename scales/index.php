@@ -29,7 +29,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- JQuery -->
     <script src='../js/jquery-3.2.0.js' type='text/javascript'></script>
-
+    <!-- Own libraries -->
     <script src='../js/scales/get_scale.js' type='text/javascript'></script>
     <script src='../js/scales/draw_scale.js' type='text/javascript'></script>
     <script src='../js/scales/get_scale_names.js' type='text/javascript'></script>
