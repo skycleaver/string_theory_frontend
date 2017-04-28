@@ -3,7 +3,7 @@
     <head>
     </head>
 
-    <body>
+    <body onresize='setCanvasSize("chord_guitar_canvas")'>
         <div class='col-md-4 col-md-offset-4'>
             <form action="" method="POST">
                 <select name="chord_root" onchange="getChordWithInput()">
@@ -42,6 +42,7 @@
         getNotesAndDraw("chord_root");
         getChordTypesAndDraw("chord_type");
         getChordWithInput();
+        setCanvasSize("chord_guitar_canvas");
 
         function getChordWithInput() {
             // can't do this with jQuery's change() function, it does not cover adding options to a select
@@ -54,6 +55,11 @@
                     "chord_guitar_canvas"
                 );
             }, 100);
+        }
+
+        function setCanvasSize(canvas_id) {
+            $('#'+canvas_id).width($('#'+canvas_id).parent().width());
+            $('#'+canvas_id).height($('#'+canvas_id).width() / 2);
         }
 
     </script>

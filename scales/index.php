@@ -3,7 +3,7 @@
     <head>
     </head>
 
-    <body>
+    <body onresize='setCanvasSize("canvas_scale_guitar")'>
         <div class='col-md-12'>
             <div class='col-md-offset-4 col-md-4'>
                 <form action="" method="POST">
@@ -43,6 +43,7 @@
         getNotesAndDraw("scale_root");
         getScaleNamesAndDraw("scale_name");
         getScaleWithInput();
+        setCanvasSize("canvas_scale_guitar");
 
         function getScaleWithInput() {
             // can't do this with jQuery's change() function, it does not cover adding options to a select
@@ -69,6 +70,11 @@
                     "canvas_scale_guitar"
                 );
             }, 100);
+        }
+
+        function setCanvasSize(canvas_id) {
+            $('#'+canvas_id).width($('#'+canvas_id).parent().width());
+            $('#'+canvas_id).height($('#'+canvas_id).width() / 2);
         }
     </script>
     
