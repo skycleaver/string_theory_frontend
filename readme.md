@@ -9,10 +9,10 @@ fingerings of an A minor to make playing and making music as enjoyable and creat
 ## Installation
 
 In order for this to work you'll need to have the [API](https://github.com/skycleaver/string_theory_backend) up and running.
-You'll also need some kind of web server like [Apache](https://httpd.apache.org/) or [Nginx](https://www.nginx.com/).
+You'll also need some kind of web server like [Apache](https://httpd.apache.org/) or [Nginx](https://nginx.org/en/).
 1. Clone this repository: 
 
 `git clone https://github.com/skycleaver/string_theory_frontend`
 
 
-Now you can see it running [here](http://localhost/string_theory_frontend)
+Now you can see it running [here](http://localhost/string_theory_frontend).
