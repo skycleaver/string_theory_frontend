@@ -74,7 +74,7 @@
 
         function setCanvasSize(canvas_id) {
             $('#'+canvas_id).width($('#'+canvas_id).parent().width());
-            $('#'+canvas_id).height($('#'+canvas_id).width() / 2);
+            $('#'+canvas_id).height($('#'+canvas_id).width() / 2.2);
         }
     </script>
     

@@ -1,4 +1,4 @@
-function draw(notes, canvas_id) {
+function draw(canvas_id, notes) {
     my_canvas = document.getElementById(canvas_id);
 
     initializeDrawingVariables();
