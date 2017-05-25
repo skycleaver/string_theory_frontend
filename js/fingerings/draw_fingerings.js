@@ -1,19 +1,17 @@
-function drawFingeringGuitar(canvas_id, fingering) {
+function drawFingeringsGuitar(div_id, canvas_id, fingerings) {
+    var div = $('#' + div_id);
+    div.empty();
 
-	my_canvas = document.getElementById(canvas_id);
-	context = my_canvas.getContext('2d');
-
-    fingering = fingering[0];
-
-    for (var i = 0; i < 6; i++) {
-        console.log(fingering[i]);
-        if (fingering[i] !== null) {
-            width = fret_length * fingering[i];
-            context.beginPath();
-            context.arc(width + canvas_margin, fretboard_width/5 * Math.abs(i - 5) + canvas_margin, mark_radius, 0, 2*Math.PI);
-            context.strokeStyle = '#ff0000';
-            context.stroke();
-            context.strokeStyle = '#000000';
-        }
+    for (var i = 0; i < fingerings.length; i++) {
+        div.append($('<div>', {
+            id: 'fingering_' + i,
+            css: {'cursor': 'pointer'},
+            text: 'Fingering ' + i,
+            fingering: JSON.stringify(fingerings[i])
+        }));
+        $('#fingering_' + i).click(function () {
+            console.log(this);
+            draw(canvas_id, undefined, JSON.parse(this.getAttribute('fingering')));
+        });
     };
 }

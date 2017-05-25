@@ -4,26 +4,30 @@
     </head>
 
     <body onresize='setCanvasSize("chord_guitar_canvas")'>
-        <div class='col-md-4 col-md-offset-4'>
-            <form action="" method="POST">
-                <select name="chord_root" onchange="getChordAndFingering()">
+        <div class='col-md-8 col-md-offset-1'>
+            <div class='col-md-4 col-md-offset-4'>
+                <form action="" method="POST">
+                    <select name="chord_root" onchange="getChordAndFingering()">
 
-                </select>
-                <select name="chord_type" onchange="getChordAndFingering()">
+                    </select>
+                    <select name="chord_type" onchange="getChordAndFingering()">
 
-                </select>
-                <select name="chord_seventh" onchange="getChordAndFingering()">
-                    <option value="">-</option>
-                    <option value="maj7">Major 7th</option>
-                    <option value="min7">Minor 7th</option>
-                </select>
-            </form>
+                    </select>
+                    <select name="chord_seventh" onchange="getChordAndFingering()">
+                        <option value="">-</option>
+                        <option value="maj7">Major 7th</option>
+                        <option value="min7">Minor 7th</option>
+                    </select>
+                </form>
+            </div>
+            <div class="chord_guitar col-md-12">
+                <canvas id="chord_guitar_canvas" width="1200" height="400">
+                    This text is displayed if your browser does not support HTML5 Canvas.
+                </canvas>
+            </div>
         </div>
-        <div class="chord_guitar col-md-8 col-md-offset-2">
-            <canvas id="chord_guitar_canvas" width="1200" height="400">
-                This text is displayed if your browser does not support HTML5 Canvas.
-            </canvas>
-        </div>
+        <div id='chord_fingerings' class='col-md-2'>
+            
         </div>
     </body>
 
@@ -50,7 +54,7 @@
 
         function getChordAndFingering() {
             getChordWithInput();
-            getFingeringWithInput();
+            getFingeringsWithInput();
         }
 
         function getChordWithInput() {
@@ -66,22 +70,23 @@
             }, 100);
         }
 
-        function getFingeringWithInput() {
+        function getFingeringsWithInput() {
             // can't do this with jQuery's change() function, it does not cover adding options to a select
             setTimeout(function() {
                 getChordFingeringGuitarAndDraw(
                     $('select[name=chord_root]').val(),
                     $('select[name=chord_type]').val(),
                     $('select[name=chord_seventh]').val(),
-                    drawFingeringGuitar,
+                    drawFingeringsGuitar,
+                    "chord_fingerings",
                     "chord_guitar_canvas"
                 );
             }, 100);
         }
 
         function setCanvasSize(canvas_id) {
-            $('#'+canvas_id).width($('#'+canvas_id).parent().width());
-            $('#'+canvas_id).height($('#'+canvas_id).width() / 2.75);
+            $('#'+canvas_id).width($('#' + canvas_id).parent().width());
+            $('#'+canvas_id).height($('#' + canvas_id).width() / 2.75);
         }
 
     </script>

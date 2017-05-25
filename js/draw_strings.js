@@ -1,4 +1,25 @@
-function draw(canvas_id, notes) {
+function draw(canvas_id, notes, fingering) {
+    
+    if (notes !== undefined) {
+        backup_notes = notes;
+    } else {
+        if (typeof backup_notes === 'undefined') {
+            notes = undefined;
+        } else {
+            notes = backup_notes;
+        }
+    }
+
+    if (fingering !== undefined) {
+        backup_fingering = fingering;
+    } else {
+        if (typeof backup_fingering === 'undefined') {
+            fingering = undefined;
+        } else {
+            fingering = backup_fingering;
+        }
+    }
+
     my_canvas = document.getElementById(canvas_id);
 
     initializeDrawingVariables();
@@ -10,6 +31,7 @@ function draw(canvas_id, notes) {
     drawFretboard();
     drawStrings();
     drawNotes(notes);
+    drawFingering(fingering);
 }
 
 /** PRIVATE **/
@@ -92,4 +114,22 @@ function drawNote(width, height, note) {
 
 function isFretValid(fret) {
     return fret !== '-' && fret !== 'X';
+}
+
+function drawFingering(fingering) {
+    if (fingering !== undefined) {
+        for (var i = 0; i < 6; i++) {
+            if (fingering[i] !== null) {
+                width = fret_length * fingering[i];
+                context.beginPath();
+                context.arc(width + canvas_margin - note_margin_from_fret * 0.75, fretboard_width/5 * Math.abs(i - 5) + canvas_margin, mark_radius * 1.5, 0, 2*Math.PI);
+                context.strokeStyle = '#ff0000';
+                context.lineWidth = 2;
+                context.stroke();
+
+                context.strokeStyle = '#000000';
+                context.lineWidth = 1;
+            }
+        };
+    }
 }

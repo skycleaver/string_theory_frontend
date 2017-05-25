@@ -1,4 +1,4 @@
-function getChordFingeringGuitarAndDraw(chord_root, chord_type, chord_seventh, callback_draw_function, canvas_id) {    
+function getChordFingeringGuitarAndDraw(chord_root, chord_type, chord_seventh, callback_draw_function, div_id, canvas_id) {    
     $.ajax({
         method: "GET",
         dataType: "jsonp",
@@ -10,6 +10,6 @@ function getChordFingeringGuitarAndDraw(chord_root, chord_type, chord_seventh, c
             chord_seventh: chord_seventh 
         }
     }).done(function (response) {
-        callback_draw_function(canvas_id, response.fingerings);
+        callback_draw_function(div_id, canvas_id, response.fingerings);
     });
 }
