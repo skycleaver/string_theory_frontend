@@ -10,7 +10,6 @@ function drawFingeringsGuitar(div_id, canvas_id, fingerings) {
             fingering: JSON.stringify(fingerings[i])
         }));
         $('#fingering_' + i).click(function () {
-            console.log(this);
             draw(canvas_id, undefined, JSON.parse(this.getAttribute('fingering')));
         });
     };
