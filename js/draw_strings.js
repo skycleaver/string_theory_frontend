@@ -1,24 +1,6 @@
 function draw(canvas_id, notes, fingering) {
     
-    if (notes !== undefined) {
-        backup_notes = notes;
-    } else {
-        if (typeof backup_notes === 'undefined') {
-            notes = undefined;
-        } else {
-            notes = backup_notes;
-        }
-    }
-
-    if (fingering !== undefined) {
-        backup_fingering = fingering;
-    } else {
-        if (typeof backup_fingering === 'undefined') {
-            fingering = undefined;
-        } else {
-            fingering = backup_fingering;
-        }
-    }
+    notes = initializeVariableWithBackup(notes, "notes");
 
     my_canvas = document.getElementById(canvas_id);
 
@@ -35,6 +17,22 @@ function draw(canvas_id, notes, fingering) {
 }
 
 /** PRIVATE **/
+function initializeVariableWithBackup(variable, backup_key) {
+    if (typeof backup === 'undefined') {
+        backup = [];
+    }
+    if (variable !== undefined) {
+        backup[backup_key] = variable;
+    } else {
+        if (typeof backup[backup_key] === 'undefined') {
+            return undefined;
+        } else {
+            return backup[backup_key];
+        }
+    }
+    return variable;
+}
+
 function initializeDrawingVariables() {
     number_of_strings = 6;
     number_of_frets = 12;
