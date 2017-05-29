@@ -60,9 +60,14 @@
         function getChordWithInput() {
             // can't do this with jQuery's change() function, it does not cover adding options to a select
             setTimeout(function() {
+                let chord_root = $('select[name=chord_root]').val();
+                let chord_type = $('select[name=chord_type]').val();
+                if (!chord_root || !chord_type) {
+                    getChordWithInput()
+                }
                 getChordGuitarAndDraw(
-                    $('select[name=chord_root]').val(),
-                    $('select[name=chord_type]').val(),
+                    chord_root,
+                    chord_type,
                     $('select[name=chord_seventh]').val(),
                     drawChordGuitar,
                     "chord_guitar_canvas"
@@ -73,9 +78,14 @@
         function getFingeringsWithInput() {
             // can't do this with jQuery's change() function, it does not cover adding options to a select
             setTimeout(function() {
+                let chord_root = $('select[name=chord_root]').val();
+                let chord_type = $('select[name=chord_type]').val();
+                if (!chord_root || !chord_type) {
+                    getChordWithInput()
+                }
                 getChordFingeringGuitarAndDraw(
-                    $('select[name=chord_root]').val(),
-                    $('select[name=chord_type]').val(),
+                    chord_root,
+                    chord_type,
                     $('select[name=chord_seventh]').val(),
                     drawFingeringsGuitar,
                     "chord_fingerings",
